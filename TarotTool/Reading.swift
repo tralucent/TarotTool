@@ -15,15 +15,18 @@ class Reading {
     var query: String = ""
     var deck: String = ""
     var cards: [Card]? = [Card]()
+    var highlights: String = ""
     var notes: String = ""
     @Attribute(.externalStorage) var photo: Data?
     
-    init(name: String, layout: String, query: String, deck: String, cards: [Card], notes: String) {
+    init(name: String, layout: String, query: String, deck: String, cards: [Card]? = nil, highlights: String, notes: String, photo: Data? = nil) {
         self.name = name
         self.layout = layout
         self.query = query
         self.deck = deck
         self.cards = cards
+        self.highlights = highlights
         self.notes = notes
+        self.photo = photo
     }
 }

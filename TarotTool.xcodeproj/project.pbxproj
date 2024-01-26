@@ -19,6 +19,10 @@
 		7E6E6B422B1AE58F00D335CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E6B412B1AE58F00D335CB /* Assets.xcassets */; };
 		7E6E6B452B1AE58F00D335CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E6B442B1AE58F00D335CB /* Preview Assets.xcassets */; };
 		7E6E6B4C2B1AE71E00D335CB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E6B4B2B1AE71E00D335CB /* Card.swift */; };
+		7E76FBD82B62AC16003D6E65 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76FBD72B62AC16003D6E65 /* CardListView.swift */; };
+		7E76FBDA2B636041003D6E65 /* TarotBasicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76FBD92B636041003D6E65 /* TarotBasicsView.swift */; };
+		7E76FBDC2B6360EB003D6E65 /* DecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76FBDB2B6360EB003D6E65 /* DecksView.swift */; };
+		7E76FBDE2B63611D003D6E65 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76FBDD2B63611D003D6E65 /* CardsView.swift */; };
 		7EFA90862B59A99100FB044C /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFA90852B59A99000FB044C /* Previewer.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,10 @@
 		7E6E6B412B1AE58F00D335CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E6E6B442B1AE58F00D335CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7E6E6B4B2B1AE71E00D335CB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		7E76FBD72B62AC16003D6E65 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		7E76FBD92B636041003D6E65 /* TarotBasicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotBasicsView.swift; sourceTree = "<group>"; };
+		7E76FBDB2B6360EB003D6E65 /* DecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksView.swift; sourceTree = "<group>"; };
+		7E76FBDD2B63611D003D6E65 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		7EFA90852B59A99000FB044C /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,15 +79,19 @@
 			children = (
 				7E6E6B3D2B1AE58C00D335CB /* TarotToolApp.swift */,
 				7E6E6B3F2B1AE58C00D335CB /* ContentView.swift */,
-				7E64A08D2B55F8F000A3BD28 /* ReadingView.swift */,
 				7E6E6B4B2B1AE71E00D335CB /* Card.swift */,
+				7E76FBD72B62AC16003D6E65 /* CardListView.swift */,
+				7E76FBDD2B63611D003D6E65 /* CardsView.swift */,
 				7E6BAE332B5EC9430006ABE2 /* ChooseCardsView.swift */,
-				7E6BAE352B5ED4030006ABE2 /* EditReadingCardsView.swift */,
 				7E64A0932B56CB9E00A3BD28 /* Deck.swift */,
+				7E76FBDB2B6360EB003D6E65 /* DecksView.swift */,
 				7E64A0952B56E1B500A3BD28 /* EditCardView.swift */,
+				7E6BAE352B5ED4030006ABE2 /* EditReadingCardsView.swift */,
 				7E64A0892B55C85800A3BD28 /* EditReadingView.swift */,
 				7EFA90852B59A99000FB044C /* Previewer.swift */,
 				7E64A0852B55C57800A3BD28 /* Reading.swift */,
+				7E64A08D2B55F8F000A3BD28 /* ReadingView.swift */,
+				7E76FBD92B636041003D6E65 /* TarotBasicsView.swift */,
 				7E6E6B412B1AE58F00D335CB /* Assets.xcassets */,
 				7E6E6B432B1AE58F00D335CB /* Preview Content */,
 			);
@@ -167,13 +179,17 @@
 				7E64A0962B56E1B500A3BD28 /* EditCardView.swift in Sources */,
 				7E64A0942B56CB9E00A3BD28 /* Deck.swift in Sources */,
 				7E6E6B402B1AE58C00D335CB /* ContentView.swift in Sources */,
+				7E76FBDA2B636041003D6E65 /* TarotBasicsView.swift in Sources */,
 				7EFA90862B59A99100FB044C /* Previewer.swift in Sources */,
+				7E76FBDC2B6360EB003D6E65 /* DecksView.swift in Sources */,
+				7E76FBDE2B63611D003D6E65 /* CardsView.swift in Sources */,
 				7E6BAE362B5ED4030006ABE2 /* EditReadingCardsView.swift in Sources */,
 				7E6E6B4C2B1AE71E00D335CB /* Card.swift in Sources */,
 				7E6BAE342B5EC9430006ABE2 /* ChooseCardsView.swift in Sources */,
 				7E64A0862B55C57800A3BD28 /* Reading.swift in Sources */,
 				7E64A08E2B55F8F100A3BD28 /* ReadingView.swift in Sources */,
 				7E6E6B3E2B1AE58C00D335CB /* TarotToolApp.swift in Sources */,
+				7E76FBD82B62AC16003D6E65 /* CardListView.swift in Sources */,
 				7E64A08A2B55C85800A3BD28 /* EditReadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,7 +19,7 @@ struct EditReadingView: View {
     
     var body: some View {
         Form {
-            Section {
+            Section("Reading Details") {
                 TextField("Reading", text: $reading.name)
                     .textContentType(.name)
                 
@@ -28,48 +28,27 @@ struct EditReadingView: View {
                 TextField("Deck", text: $reading.deck)
                 
                 TextField("Layout", text: $reading.layout)
-                
-//                TextField("Cards", text: $reading.cards.first)
-//                this needs some form of structure... a picker?
-                
+                                
             }
             
-            Section("Cards") {
-//                Picker("Cards", selection: $reading.cards) {
-//                    Text("Unknown card")
-//                        .tag(Optional<Card>.none)
-//                    
-//                    if !cards.isEmpty {
-//                        Divider()
-//                        
-//                        ForEach(cards) { card in
-//                                Text(card.name)
-//                                .tag(Optional(card))
-//                        }
-//                    }
-//                }
-                
+            Section("Cards Drawn") {
                 List {
                     ForEach(reading.cards!) { card in
                         Text(card.name)
                     }
-//                    ForEach(cards, id: \.self) { card in
-//                        Button(action: { cardSelect(card: card) }) {
-//                            HStack {
-//                                Image(systemName: "checkmark")
-//                                    .opacity(reading.cards!.contains(card) ? 1.0 : 0.0)
-//                                Text(card.name)
-//                            }
-//                        }
-//                    }
                 }
-
-                //Divider()
+            }
+            
+            Section {
+                NavigationLink(destination: CardListView(reading: reading)) {
+                    Text("Select cards")
+                        .tint(.blue)
+                }
 
                 Button("Add new card", action: addCard)
             }
 
-            Section("Reading details") {
+            Section("Further Information") {
                 TextField("Notes on this reading", text: $reading.notes, axis: .vertical)
             }
         }
