@@ -19,6 +19,24 @@ struct DeckListView: View {
                     Text(deck.name)
                 }
             }
+            .onDelete(perform: deleteDecks)
+        }
+    }
+    
+    init(searchString: String = "", sortOrder: [SortDescriptor<Deck>] = []) {
+        _decks = Query(filter: #Predicate { deck in
+            if searchString.isEmpty {
+                true
+            } else {
+                deck.name.localizedStandardContains(searchString)
+            }
+        }, sort: sortOrder)
+    }
+    
+    func deleteDecks(at offsets: IndexSet) {
+        for offset in offsets {
+            let deck = decks[offset]
+            modelContext.delete(deck)
         }
     }
 }

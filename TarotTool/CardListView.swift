@@ -22,6 +22,24 @@ struct CardListView: View {
                     Text(card.name)
                 }
             }
+            .onDelete(perform: deleteCards)
+        }
+    }
+    
+    init(searchString: String = "", sortOrder: [SortDescriptor<Card>] = []) {
+        _cardList = Query(filter: #Predicate { card in
+            if searchString.isEmpty {
+                true
+            } else {
+                card.name.localizedStandardContains(searchString)
+            }
+        }, sort: sortOrder)
+    }
+    
+    func deleteCards(at offsets: IndexSet) {
+        for offset in offsets {
+            let card = cardList[offset]
+            modelContext.delete(card)
         }
     }
 }

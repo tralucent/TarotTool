@@ -19,17 +19,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path) {
             TabView {
-                DeckListView()
+                DeckListView(searchString: searchText, sortOrder: [SortDescriptor(\Deck.name)])
                     .tabItem {
                         Label("Decks", systemImage: "square.stack.3d.up")
                     }
                     .tag(1)
-                CardListView()
+                CardListView(searchString: searchText, sortOrder: [SortDescriptor(\Card.name)])
                     .tabItem {
                         Label("Cards", systemImage: "square.stack")
                     }
                     .tag(2)
-                ReadingView(searchString: searchText, sortOrder: sortOrder)
+                ReadingsView(searchString: searchText, sortOrder: sortOrder)
                     .tabItem {
                         Label("Readings", systemImage: "book.pages")
                     }
@@ -92,10 +92,6 @@ struct ContentView: View {
         let spread = Spread(name: "", details: "", notes: "", numberOfCards: 1, history: "", image: nil)
         modelContext.insert(spread)
         path.append(spread)
-    }
-    
-    func getDefaultSpread() {
-        //i'm goind to make a default spread thing happen
     }
 }
 

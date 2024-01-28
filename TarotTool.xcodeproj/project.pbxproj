@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E64A0862B55C57800A3BD28 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0852B55C57800A3BD28 /* Reading.swift */; };
 		7E64A08A2B55C85800A3BD28 /* EditReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0892B55C85800A3BD28 /* EditReadingView.swift */; };
-		7E64A08E2B55F8F100A3BD28 /* ReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A08D2B55F8F000A3BD28 /* ReadingView.swift */; };
+		7E64A08E2B55F8F100A3BD28 /* ReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */; };
 		7E64A0942B56CB9E00A3BD28 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0932B56CB9E00A3BD28 /* Deck.swift */; };
 		7E64A0962B56E1B500A3BD28 /* EditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0952B56E1B500A3BD28 /* EditCardView.swift */; };
 		7E6BAE342B5EC9430006ABE2 /* ChooseCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6BAE332B5EC9430006ABE2 /* ChooseCardsView.swift */; };
@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		7E64A0852B55C57800A3BD28 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		7E64A0892B55C85800A3BD28 /* EditReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReadingView.swift; sourceTree = "<group>"; };
-		7E64A08D2B55F8F000A3BD28 /* ReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingView.swift; sourceTree = "<group>"; };
+		7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
 		7E64A0932B56CB9E00A3BD28 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		7E64A0952B56E1B500A3BD28 /* EditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
 		7E6BAE332B5EC9430006ABE2 /* ChooseCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCardsView.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				7E76FBE52B65E283003D6E65 /* EditSpreadView.swift */,
 				7EFA90852B59A99000FB044C /* Previewer.swift */,
 				7E64A0852B55C57800A3BD28 /* Reading.swift */,
-				7E64A08D2B55F8F000A3BD28 /* ReadingView.swift */,
+				7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */,
 				7E76FBDF2B644F76003D6E65 /* Spread.swift */,
 				7E76FBE32B65E1B0003D6E65 /* SpreadListView.swift */,
 				7E76FBD92B636041003D6E65 /* TarotBasicsView.swift */,
@@ -207,7 +207,7 @@
 				7E76FBEA2B65E2B5003D6E65 /* EditDeckView.swift in Sources */,
 				7E64A0862B55C57800A3BD28 /* Reading.swift in Sources */,
 				7E76FBE42B65E1B0003D6E65 /* SpreadListView.swift in Sources */,
-				7E64A08E2B55F8F100A3BD28 /* ReadingView.swift in Sources */,
+				7E64A08E2B55F8F100A3BD28 /* ReadingsView.swift in Sources */,
 				7E6E6B3E2B1AE58C00D335CB /* TarotToolApp.swift in Sources */,
 				7E76FBD82B62AC16003D6E65 /* CardListView.swift in Sources */,
 				7E64A08A2B55C85800A3BD28 /* EditReadingView.swift in Sources */,

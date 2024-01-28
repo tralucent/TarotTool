@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct ReadingView: View {
+struct ReadingsView: View {
     @Environment(\.modelContext) var modelContext
     @Query var readings: [Reading]
     
@@ -45,5 +45,5 @@ struct ReadingView: View {
 }
 
 #Preview {
-    ReadingView()
+    ReadingsView()
 }
