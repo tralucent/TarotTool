@@ -18,16 +18,22 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            Form {
-                Section("Decks") {
-                    DeckListView()
-                }
-                Section("Cards") {
-                    CardListView()
-                }
-                Section("Readings") {
-                    ReadingView(searchString: searchText, sortOrder: sortOrder)
-                }
+            TabView {
+                DeckListView()
+                    .tabItem {
+                        Label("Decks", systemImage: "square.stack.3d.up")
+                    }
+                    .tag(1)
+                CardListView()
+                    .tabItem {
+                        Label("Cards", systemImage: "square.stack")
+                    }
+                    .tag(2)
+                ReadingView(searchString: searchText, sortOrder: sortOrder)
+                    .tabItem {
+                        Label("Readings", systemImage: "book.pages")
+                    }
+                    .tag(3)
             }
             .navigationTitle("TarotTool")
             .navigationDestination(for: Reading.self) { reading in
