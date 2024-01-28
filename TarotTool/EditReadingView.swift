@@ -5,6 +5,7 @@
 //  Created by Halcyone Rapp on 1/15/24.
 //
 
+import PhotosUI
 import SwiftData
 import SwiftUI
 
@@ -12,6 +13,8 @@ struct EditReadingView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var reading: Reading
     @Binding var navigationPath: NavigationPath
+    
+    @State private var selectedItem: PhotosPickerItem?
     
     @Query(sort: [
         SortDescriptor(\Card.name)
@@ -49,11 +52,24 @@ struct EditReadingView: View {
 
                 Button("Add new card", action: addCard)
             }
+            
+            Section {
+                if let imageData = reading.photo, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                }
+                
+                PhotosPicker(selection: $selectedItem, matching: .images) {
+                    Label(reading.photo == nil ? "Select an image" : "Change image", systemImage: "photo")
+                }
+            }
 
             Section("Further Information") {
                 TextField("Notes on this reading", text: $reading.notes, axis: .vertical)
             }
         }
+        .onChange(of: selectedItem, loadImage)
         .navigationTitle("Edit Reading")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(for: Card.self) { card in
@@ -75,6 +91,12 @@ struct EditReadingView: View {
         modelContext.insert(card)
         reading.cards!.append(card)
         navigationPath.append(card)
+    }
+    
+    func loadImage() {
+        Task { @MainActor in
+            reading.photo = try await selectedItem?.loadTransferable(type: Data.self)
+        }
     }
 }
 

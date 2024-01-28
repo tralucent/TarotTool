@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CardsView: View {
     var body: some View {
-        Text("Cards")
+        Menu("Cards") {
+            Text("a test")
+        }
     }
 }
 
