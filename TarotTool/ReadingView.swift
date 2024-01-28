@@ -11,12 +11,15 @@ import SwiftUI
 struct ReadingView: View {
     @Environment(\.modelContext) var modelContext
     @Query var readings: [Reading]
-
+    
     var body: some View {
         List {
             ForEach(readings) { reading in
                 NavigationLink(value: reading) {
-                    Text(reading.name)
+                    VStack {
+                        Text(reading.name)
+                        Text(reading.query)
+                    }
                 }
             }
             .onDelete(perform: deleteReadings)

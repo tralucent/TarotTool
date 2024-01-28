@@ -27,8 +27,10 @@ struct EditReadingView: View {
                 
                 TextField("Deck", text: $reading.deck)
                 
-                TextField("Layout", text: $reading.layout)
-                                
+                if reading.spread != nil {
+                    Text(reading.spread!.name)
+                }
+
             }
             
             Section("Cards Drawn") {
@@ -40,7 +42,7 @@ struct EditReadingView: View {
             }
             
             Section {
-                NavigationLink(destination: CardListView(reading: reading)) {
+                NavigationLink(destination: EditReadingCardsView(reading: reading)) {
                     Text("Select cards")
                         .tint(.blue)
                 }
@@ -69,7 +71,7 @@ struct EditReadingView: View {
     }
     
     func addCard() {
-        let card = Card(name: "", details: "", notes: "", readings: [reading])
+        let card = Card(name: "", details: "", notes: "", history: "", meaning: "", associations: "")
         modelContext.insert(card)
         reading.cards!.append(card)
         navigationPath.append(card)

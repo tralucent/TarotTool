@@ -11,7 +11,7 @@ import SwiftData
 @Model
 class Reading {
     var name: String = ""
-    var layout: String = ""
+    var spread: Spread?
     var query: String = ""
     var deck: String = ""
     var cards: [Card]? = [Card]()
@@ -19,9 +19,9 @@ class Reading {
     var notes: String = ""
     @Attribute(.externalStorage) var photo: Data?
     
-    init(name: String, layout: String, query: String, deck: String, cards: [Card]? = nil, highlights: String, notes: String, photo: Data? = nil) {
+    init(name: String, spread: Spread? = nil, query: String, deck: String, cards: [Card]? = nil, highlights: String, notes: String, photo: Data? = nil) {
         self.name = name
-        self.layout = layout
+        self.spread = spread
         self.query = query
         self.deck = deck
         self.cards = cards
