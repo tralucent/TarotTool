@@ -14,17 +14,20 @@ struct ContentView: View {
     
     @State private var sortOrder = [SortDescriptor(\Reading.name)]
     @State private var searchText = ""
-    @State private var add: Int = 0
+    @State private var currentTab: Int = 1
+    
+    @State private var cardOrder = [SortDescriptor(\Card.name)]
+    @State private var deckOrder = [SortDescriptor(\Deck.name)]
     
     var body: some View {
         NavigationStack(path: $path) {
-            TabView {
-                DeckListView(searchString: searchText, sortOrder: [SortDescriptor(\Deck.name)])
+            TabView(selection: $currentTab) {
+                DeckListView(searchString: searchText, sortOrder: deckOrder)
                     .tabItem {
                         Label("Decks", systemImage: "square.stack.3d.up")
                     }
                     .tag(1)
-                CardListView(searchString: searchText, sortOrder: [SortDescriptor(\Card.name)])
+                CardListView(searchString: searchText, sortOrder: cardOrder)
                     .tabItem {
                         Label("Cards", systemImage: "square.stack")
                     }
@@ -49,16 +52,38 @@ struct ContentView: View {
                 EditSpreadView(spread: spread)
             }
             .toolbar {
-                Menu("Sort", systemImage: "arrow.up.arrow.down") {
-                    Picker("Sort", selection: $sortOrder) {
-                        Text("Name (A-Z)")
-                            .tag([SortDescriptor(\Reading.name)])
-                        
-                        Text("Name (Z-A)")
-                            .tag([SortDescriptor(\Reading.name, order: .reverse)])
+                if currentTab == 1 {
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $deckOrder) {
+                            Text("Name (A-Z)")
+                                .tag([SortDescriptor(\Deck.name)])
+                            
+                            Text("Name (Z-A)")
+                                .tag([SortDescriptor(\Deck.name, order: .reverse)])
+                        }
+                    }
+                } else if currentTab == 2 {
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $cardOrder) {
+                            Text("Name (A-Z)")
+                                .tag([SortDescriptor(\Card.name)])
+                            
+                            Text("Name (Z-A)")
+                                .tag([SortDescriptor(\Card.name, order: .reverse)])
+                        }
+                    }
+                } else if currentTab == 3 {
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $sortOrder) {
+                            Text("Name (A-Z)")
+                                .tag([SortDescriptor(\Reading.name)])
+                            
+                            Text("Name (Z-A)")
+                                .tag([SortDescriptor(\Reading.name, order: .reverse)])
+                        }
                     }
                 }
-                
+
                 Menu("Add things", systemImage: "plus") {
                     Button("Add Reading", action: addReading)
                     Button("Add Deck", action: addDeck)
