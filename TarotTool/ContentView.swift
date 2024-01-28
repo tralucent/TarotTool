@@ -20,7 +20,7 @@ struct ContentView: View {
         NavigationStack(path: $path) {
             Form {
                 Section("Decks") {
-                    DecksView()
+                    DeckListView()
                 }
                 Section("Cards") {
                     CardListView()
@@ -57,7 +57,7 @@ struct ContentView: View {
                     Button("Add Reading", action: addReading)
                     Button("Add Deck", action: addDeck)
                     Button("Add Card", action: addCard)
-                    Button("Add Spread", action: addCard)
+                    Button("Add Spread", action: addSpread)
                 }
             }
             .searchable(text: $searchText)
