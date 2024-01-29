@@ -13,13 +13,13 @@ class Reading {
     var name: String = ""
     var spread: Spread?
     var query: String = ""
-    var deck: String = ""
+    var deck: [Deck]? = [Deck]()
     var cards: [Card]? = [Card]()
     var highlights: String = ""
     var notes: String = ""
     @Attribute(.externalStorage) var photo: Data?
     
-    init(name: String, spread: Spread? = nil, query: String, deck: String, cards: [Card]? = nil, highlights: String, notes: String, photo: Data? = nil) {
+    init(name: String, spread: Spread? = nil, query: String, deck: [Deck], cards: [Card]? = nil, highlights: String, notes: String, photo: Data? = nil) {
         self.name = name
         self.spread = spread
         self.query = query

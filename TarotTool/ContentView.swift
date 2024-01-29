@@ -96,7 +96,7 @@ struct ContentView: View {
     }
     
     func addReading() {
-        let reading = Reading(name: "", spread: nil, query: "", deck: "", cards: [], highlights: "", notes: "")
+        let reading = Reading(name: "", spread: nil, query: "", deck: [], cards: [], highlights: "", notes: "")
         modelContext.insert(reading)
         path.append(reading)
     }

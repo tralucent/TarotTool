@@ -19,6 +19,9 @@ struct EditReadingView: View {
     @Query(sort: [
         SortDescriptor(\Card.name)
     ]) var cards: [Card]
+    @Query(sort: [
+        SortDescriptor(\Spread.name)
+    ]) var spreads: [Spread]
     
     var body: some View {
         Form {
@@ -28,7 +31,17 @@ struct EditReadingView: View {
                 
                 TextField("Query", text: $reading.query)
                 
-                TextField("Deck", text: $reading.deck)
+                List {
+                    ForEach(reading.deck!) { deck in
+                        Text(deck.name)
+                    }
+                }
+                
+                Picker("Choose a spread", selection: $reading.spread) {
+                    ForEach(spreads) { spread in
+                        Text(spread.name)
+                    }
+                }
                 
                 if reading.spread != nil {
                     Text(reading.spread!.name)
