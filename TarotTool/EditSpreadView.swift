@@ -22,6 +22,8 @@ struct EditSpreadView: View {
                 TextField("Notes", text: $spread.notes)
             }
         }
+        .navigationTitle("Edit Spread")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

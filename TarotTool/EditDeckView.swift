@@ -38,6 +38,8 @@ struct EditDeckView: View {
             }
         }
         .onChange(of: selectedItem, loadImage)
+        .navigationTitle(deck.name.isEmpty ? "Edit Deck" : "Edit \(deck.name)")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func loadImage() {

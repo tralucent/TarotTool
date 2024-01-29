@@ -36,6 +36,8 @@ struct EditCardView: View {
             }
         }
         .onChange(of: selectedItem, loadImage)
+        .navigationTitle(card.name.isEmpty ? "Edit Card" : "Edit \(card.name)")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func loadImage() {

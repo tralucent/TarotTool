@@ -85,9 +85,9 @@ struct EditReadingView: View {
         .onChange(of: selectedItem, loadImage)
         .navigationTitle("Edit Reading")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(for: Card.self) { card in
-            EditCardView(card: card)
-        }
+//        .navigationDestination(for: Card.self) { card in
+//            EditCardView(card: card)
+//        }
     }
     
     func cardSelect(card: Card) {
