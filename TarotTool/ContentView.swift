@@ -46,7 +46,7 @@ struct ContentView: View {
                 EditCardView(card: card)
             }
             .navigationDestination(for: Deck.self) { deck in
-                EditDeckView(deck: deck)
+                EditDeckView(deck: deck, navigationPath: $path)
             }
             .navigationDestination(for: Spread.self) { spread in
                 EditSpreadView(spread: spread)

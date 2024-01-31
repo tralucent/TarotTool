@@ -12,6 +12,8 @@ import SwiftUI
 struct EditDeckView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var deck: Deck
+    @Binding var navigationPath: NavigationPath
+    
     @State private var selectedItem: PhotosPickerItem?
     
     var body: some View {
@@ -34,12 +36,19 @@ struct EditDeckView: View {
                 TextField("Artist", text: $deck.artist)
             }
             
-            Section {
-//                CardsInDeckView(deck: deck)
+            Section("Cards in deck") {
                 CardListView(hasCardList: HasCards(hasCardList: deck))
-                Text("Cards go here")
             }
-            
+
+            Section {
+                NavigationLink(destination: EditCardListView(hasCardList: HasCards(hasCardList: deck))) {
+                    Text("Select cards")
+                        .tint(.blue)
+                }
+
+                Button("Add new card", action: addCard)
+            }
+
             Section {
                 TextField("Notes", text: $deck.notes)
             }
@@ -48,7 +57,14 @@ struct EditDeckView: View {
         .navigationTitle(deck.name.isEmpty ? "Edit Deck" : "Edit \(deck.name)")
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
+    func addCard() {
+        let card = Card(name: "", details: "", notes: "", history: "", meaning: "", associations: "", deck: deck)
+        modelContext.insert(card)
+        deck.cards!.append(card)
+        navigationPath.append(card)
+    }
+
     func loadImage() {
         Task { @MainActor in
             deck.image = try await selectedItem?.loadTransferable(type: Data.self)

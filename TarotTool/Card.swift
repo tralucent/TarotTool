@@ -40,7 +40,7 @@ class Card {
     var readings: [Reading]? = [Reading]()
     @Attribute(.externalStorage) var image: Data?
     
-    init(name: String, details: String, notes: String, history: String, meaning: String, associations: String, deck: Deck? = nil, readings: [Reading]? = nil, image: Data? = nil) {
+    init(name: String, details: String, notes: String, history: String, meaning: String, associations: String, deck: Deck? = nil, readings: [Reading]? = [], image: Data? = nil) {
         self.name = name
         self.details = details
         self.notes = notes

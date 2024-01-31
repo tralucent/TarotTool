@@ -82,16 +82,7 @@ struct EditReadingView: View {
         .navigationTitle("Edit Reading")
         .navigationBarTitleDisplayMode(.inline)
     }
-    
-//    func cardSelect(card: Card) {
-//        // force unwraping should be safe here, do i need/want more checks?
-//        if reading.cards!.contains(card)  {
-//            reading.cards?.removeAll(where: { $0 == card })
-//        } else {
-//            reading.cards!.append(card)
-//        }
-//    }
-    
+
     func addCard() {
         let card = Card(name: "", details: "", notes: "", history: "", meaning: "", associations: "")
         modelContext.insert(card)
