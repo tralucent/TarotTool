@@ -31,8 +31,16 @@ class Reading: HasCardList {
         self.notes = notes
         self.photo = photo
     }
-
+    
     func getCardList() -> [Card] {
         cards!
+    }
+    
+    func addCard(card: Card) {
+        cards!.append(card)
+    }
+
+    func removeCard(card: Card) {
+        cards!.removeAll(where: { $0 == card})
     }
 }

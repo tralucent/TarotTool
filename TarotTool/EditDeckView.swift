@@ -35,7 +35,8 @@ struct EditDeckView: View {
             }
             
             Section {
-                CardsInDeckView(deck: deck)
+//                CardsInDeckView(deck: deck)
+                CardListView(hasCardList: HasCards(hasCardList: deck))
                 Text("Cards go here")
             }
             

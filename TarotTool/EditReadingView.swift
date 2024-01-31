@@ -50,16 +50,11 @@ struct EditReadingView: View {
             }
             
             Section("Cards Drawn") {
-                EditCardListView(hasCardList: HasCards(hasCardList: reading))
-//                List {
-//                    ForEach(reading.cards!) { card in
-//                        Text(card.name)
-//                    }
-//                }
+                CardListView(hasCardList: HasCards(hasCardList: reading))
             }
             
             Section {
-                NavigationLink(destination: EditReadingCardsView(reading: reading)) {
+                NavigationLink(destination: EditCardListView(hasCardList: HasCards(hasCardList: reading))) {
                     Text("Select cards")
                         .tint(.blue)
                 }

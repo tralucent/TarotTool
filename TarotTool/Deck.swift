@@ -37,4 +37,12 @@ class Deck: HasCardList {
     func getCardList() -> [Card] {
         cards!
     }
+    
+    func addCard(card: Card) {
+        cards!.append(card)
+    }
+    
+    func removeCard(card: Card) {
+        cards!.removeAll(where: { $0 == card})
+    }
 }

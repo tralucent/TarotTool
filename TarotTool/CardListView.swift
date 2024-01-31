@@ -2,55 +2,35 @@
 //  CardListView.swift
 //  TarotTool
 //
-//  Created by Halcyone Rapp on 1/25/24.
+//  Created by Halcyone Rapp on 1/31/24.
 //
 
 import SwiftData
 import SwiftUI
 
 struct CardListView: View {
-    @Environment(\.modelContext) var modelContext
-    
-    @Query(sort: [
-        SortDescriptor(\Card.name)
-    ]) var cardList: [Card]
+    @Bindable var hasCardList: HasCards
     
     var body: some View {
+        let cards = hasCardList.getCardList()
+
         List {
-            ForEach(cardList) { card in
-                NavigationLink(value: card) {
-                    Text(card.name)
-                }
+            ForEach(cards) { card in
+                Text(card.name)
             }
-            .onDelete(perform: deleteCards)
-        }
-    }
-    
-    init(searchString: String = "", sortOrder: [SortDescriptor<Card>] = []) {
-        _cardList = Query(filter: #Predicate { card in
-            if searchString.isEmpty {
-                true
-            } else {
-                card.name.localizedStandardContains(searchString)
-            }
-        }, sort: sortOrder)
-    }
-    
-    func deleteCards(at offsets: IndexSet) {
-        for offset in offsets {
-            let card = cardList[offset]
-            modelContext.delete(card)
         }
     }
 }
 
-#Preview {
-    do {
-        let previewer = try Previewer()
-        
-        return CardListView()
-            .modelContainer(previewer.container)
-    } catch {
-        return Text("Failed to create preview: \(error.localizedDescription)")
-    }
-}
+// Preview is crashing with something about an unknown type Card?
+//#Preview {
+//    do {
+//        let previewer = try Previewer()
+//
+//        return CardListView(hasCardList: HasCards(hasCardList: previewer.reading))
+//            .modelContainer(previewer.container)
+//    } catch {
+//        return Text("Failed to create preview: \(error.localizedDescription)")
+//    }
+//}
+

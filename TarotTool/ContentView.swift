@@ -27,7 +27,7 @@ struct ContentView: View {
                         Label("Decks", systemImage: "square.stack.3d.up")
                     }
                     .tag(1)
-                CardListView(searchString: searchText, sortOrder: cardOrder)
+                CardsView(searchString: searchText, sortOrder: cardOrder)
                     .tabItem {
                         Label("Cards", systemImage: "square.stack")
                     }
