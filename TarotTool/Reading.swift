@@ -9,7 +9,9 @@ import Foundation
 import SwiftData
 
 @Model
-class Reading {
+class Reading: HasCardList {
+    typealias T = Reading
+    
     var name: String = ""
     var spread: Spread?
     var query: String = ""
@@ -28,5 +30,9 @@ class Reading {
         self.highlights = highlights
         self.notes = notes
         self.photo = photo
+    }
+
+    func getCardList() -> [Card] {
+        cards!
     }
 }

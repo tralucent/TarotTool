@@ -33,6 +33,12 @@ struct EditDeckView: View {
                 TextField("Author", text: $deck.author)
                 TextField("Artist", text: $deck.artist)
             }
+            
+            Section {
+                CardsInDeckView(deck: deck)
+                Text("Cards go here")
+            }
+            
             Section {
                 TextField("Notes", text: $deck.notes)
             }

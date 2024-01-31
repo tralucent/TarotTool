@@ -12,6 +12,7 @@ import SwiftUI
 struct EditReadingCardsView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var reading: Reading
+//    @Bindable var hasCards: Deck
     
     @Query(sort: [
         SortDescriptor(\Card.name)

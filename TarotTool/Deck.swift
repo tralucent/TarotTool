@@ -9,7 +9,9 @@ import Foundation
 import SwiftData
 
 @Model
-class Deck {
+class Deck: HasCardList {    
+    typealias T = Deck
+    
     var name: String = ""
     var author: String = ""
     var artist: String = ""
@@ -30,5 +32,9 @@ class Deck {
         self.cards = cards
         self.image = image
         self.cardBack = cardBack
+    }
+
+    func getCardList() -> [Card] {
+        cards!
     }
 }

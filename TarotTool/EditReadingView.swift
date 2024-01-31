@@ -50,11 +50,12 @@ struct EditReadingView: View {
             }
             
             Section("Cards Drawn") {
-                List {
-                    ForEach(reading.cards!) { card in
-                        Text(card.name)
-                    }
-                }
+                EditCardListView(hasCardList: HasCards(hasCardList: reading))
+//                List {
+//                    ForEach(reading.cards!) { card in
+//                        Text(card.name)
+//                    }
+//                }
             }
             
             Section {
@@ -85,19 +86,16 @@ struct EditReadingView: View {
         .onChange(of: selectedItem, loadImage)
         .navigationTitle("Edit Reading")
         .navigationBarTitleDisplayMode(.inline)
-//        .navigationDestination(for: Card.self) { card in
-//            EditCardView(card: card)
-//        }
     }
     
-    func cardSelect(card: Card) {
-        // force unwraping should be safe here, do i need/want more checks?
-        if reading.cards!.contains(card)  {
-            reading.cards?.removeAll(where: { $0 == card })
-        } else {
-            reading.cards!.append(card)
-        }
-    }
+//    func cardSelect(card: Card) {
+//        // force unwraping should be safe here, do i need/want more checks?
+//        if reading.cards!.contains(card)  {
+//            reading.cards?.removeAll(where: { $0 == card })
+//        } else {
+//            reading.cards!.append(card)
+//        }
+//    }
     
     func addCard() {
         let card = Card(name: "", details: "", notes: "", history: "", meaning: "", associations: "")

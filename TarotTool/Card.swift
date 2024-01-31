@@ -52,3 +52,23 @@ class Card {
         self.image = image
     }
 }
+
+protocol HasCardList: Observable {
+    associatedtype T
+
+    func getCardList() -> [Card]
+}
+
+// this is a wrapper class for a class that has a list of cards: [Card]
+class HasCards: Observable {
+    
+    var hasCardList: any HasCardList
+    
+    init(hasCardList: any HasCardList) {
+        self.hasCardList = hasCardList
+    }
+    
+    func getCardList() -> [Card] {
+        hasCardList.getCardList()
+    }
+}
