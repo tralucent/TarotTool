@@ -55,10 +55,9 @@ class Card {
 
 protocol HasCardList: Observable {
     associatedtype T
+    
+    var cards: [Card]? { get set }
 
-    func getCardList() -> [Card]
-    func addCard(card: Card)
-    func removeCard(card: Card)
 }
 
 // this is a wrapper class for a class that has a list of cards: [Card]
@@ -71,14 +70,14 @@ class HasCards: Observable {
     }
     
     func getCardList() -> [Card] {
-        hasCardList.getCardList()
+        hasCardList.cards!
     }
     
     func addCard(card: Card) {
-        hasCardList.addCard(card: card)
+        hasCardList.cards!.append(card)
     }
     
     func removeCard(card: Card) {
-        hasCardList.removeCard(card: card)
+        hasCardList.cards!.removeAll(where: { $0 == card })
     }
 }
