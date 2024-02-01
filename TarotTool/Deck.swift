@@ -19,10 +19,11 @@ class Deck: HasCardList {
     var history: String = ""
     var notes: String = ""
     var cards: [Card]? = [Card]()
+    var readings: [Reading]? = [Reading]()
     @Attribute(.externalStorage) var image: Data?
     @Attribute(.externalStorage) var cardBack: Data?
     
-    init(name: String, author: String, artist: String, details: String, history: String, notes: String, cards: [Card]? = nil, image: Data? = nil, cardBack: Data? = nil) {
+    init(name: String, author: String, artist: String, details: String, history: String, notes: String, cards: [Card]? = [], readings: [Reading]? = [], image: Data? = nil, cardBack: Data? = nil) {
         self.name = name
         self.author = author
         self.artist = artist

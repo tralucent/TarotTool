@@ -15,6 +15,7 @@ struct EditReadingView: View {
     @Binding var navigationPath: NavigationPath
     
     @State private var selectedItem: PhotosPickerItem?
+    @State private var selectedDeck: Deck?
     
     @Query(sort: [
         SortDescriptor(\Card.name)
@@ -22,6 +23,9 @@ struct EditReadingView: View {
     @Query(sort: [
         SortDescriptor(\Spread.name)
     ]) var spreads: [Spread]
+    @Query(sort: [
+        SortDescriptor(\Deck.name)
+    ]) var decks: [Deck]
     
     var body: some View {
         Form {
@@ -31,15 +35,17 @@ struct EditReadingView: View {
                 
                 TextField("Query", text: $reading.query)
                 
-                List {
-                    ForEach(reading.deck!) { deck in
-                        Text(deck.name)
+                Picker("Choose a Deck", selection: $selectedDeck) {
+                    Text("None").tag(nil as Deck?)
+                    ForEach(decks) { deck in
+                        Text(deck.name).tag(deck.self as Deck?)
                     }
                 }
                 
                 Picker("Choose a spread", selection: $reading.spread) {
+                    Text("None").tag(nil as Spread?)
                     ForEach(spreads) { spread in
-                        Text(spread.name)
+                        Text(spread.name).tag(spread.self as Spread?)
                     }
                 }
                 
@@ -78,6 +84,8 @@ struct EditReadingView: View {
                 TextField("Notes on this reading", text: $reading.notes, axis: .vertical)
             }
         }
+        .onAppear(perform: loadDeck)
+        .onChange(of: selectedDeck, setDeck)
         .onChange(of: selectedItem, loadImage)
         .navigationTitle("Edit Reading")
         .navigationBarTitleDisplayMode(.inline)
@@ -88,6 +96,16 @@ struct EditReadingView: View {
         modelContext.insert(card)
         reading.cards!.append(card)
         navigationPath.append(card)
+    }
+    
+    func loadDeck() {
+        if !(reading.deck?.isEmpty ?? true) {
+            selectedDeck = reading.deck![0]
+        }
+    }
+    
+    func setDeck() {
+        reading.deck = [selectedDeck!]
     }
     
     func loadImage() {
