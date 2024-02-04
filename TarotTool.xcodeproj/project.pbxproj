@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0AC3B42B6D2E16003F21BE /* TarotToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0AC3B32B6D2E16003F21BE /* TarotToolTests.swift */; };
 		7E64A0862B55C57800A3BD28 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0852B55C57800A3BD28 /* Reading.swift */; };
 		7E64A08A2B55C85800A3BD28 /* EditReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0892B55C85800A3BD28 /* EditReadingView.swift */; };
 		7E64A08E2B55F8F100A3BD28 /* ReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */; };
@@ -29,9 +30,22 @@
 		7E76FBE62B65E283003D6E65 /* EditSpreadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76FBE52B65E283003D6E65 /* EditSpreadView.swift */; };
 		7E76FBEA2B65E2B5003D6E65 /* EditDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E76FBE92B65E2B5003D6E65 /* EditDeckView.swift */; };
 		7EFA90862B59A99100FB044C /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFA90852B59A99000FB044C /* Previewer.swift */; };
+		7EFBCE822B6EEBE8003870EA /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBCE812B6EEBE8003870EA /* Bundle-Decodable.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7E0AC3B52B6D2E16003F21BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6E6B322B1AE58C00D335CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E6E6B392B1AE58C00D335CB;
+			remoteInfo = TarotTool;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		7E0AC3B12B6D2E16003F21BE /* TarotToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TarotToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0AC3B32B6D2E16003F21BE /* TarotToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotToolTests.swift; sourceTree = "<group>"; };
 		7E64A0852B55C57800A3BD28 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		7E64A0892B55C85800A3BD28 /* EditReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReadingView.swift; sourceTree = "<group>"; };
 		7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
@@ -55,9 +69,17 @@
 		7E76FBE52B65E283003D6E65 /* EditSpreadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSpreadView.swift; sourceTree = "<group>"; };
 		7E76FBE92B65E2B5003D6E65 /* EditDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckView.swift; sourceTree = "<group>"; };
 		7EFA90852B59A99000FB044C /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
+		7EFBCE812B6EEBE8003870EA /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7E0AC3AE2B6D2E16003F21BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E6E6B372B1AE58C00D335CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,10 +90,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0AC3B22B6D2E16003F21BE /* TarotToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E0AC3B32B6D2E16003F21BE /* TarotToolTests.swift */,
+			);
+			path = TarotToolTests;
+			sourceTree = "<group>";
+		};
 		7E6E6B312B1AE58C00D335CB = {
 			isa = PBXGroup;
 			children = (
 				7E6E6B3C2B1AE58C00D335CB /* TarotTool */,
+				7E0AC3B22B6D2E16003F21BE /* TarotToolTests */,
 				7E6E6B3B2B1AE58C00D335CB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				7E6E6B3A2B1AE58C00D335CB /* TarotTool.app */,
+				7E0AC3B12B6D2E16003F21BE /* TarotToolTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				7E6E6B3D2B1AE58C00D335CB /* TarotToolApp.swift */,
+				7EFBCE812B6EEBE8003870EA /* Bundle-Decodable.swift */,
 				7E6E6B3F2B1AE58C00D335CB /* ContentView.swift */,
 				7E6E6B4B2B1AE71E00D335CB /* Card.swift */,
 				7E76FBD72B62AC16003D6E65 /* CardListView.swift */,
@@ -124,6 +157,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7E0AC3B02B6D2E16003F21BE /* TarotToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E0AC3B92B6D2E16003F21BE /* Build configuration list for PBXNativeTarget "TarotToolTests" */;
+			buildPhases = (
+				7E0AC3AD2B6D2E16003F21BE /* Sources */,
+				7E0AC3AE2B6D2E16003F21BE /* Frameworks */,
+				7E0AC3AF2B6D2E16003F21BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E0AC3B62B6D2E16003F21BE /* PBXTargetDependency */,
+			);
+			name = TarotToolTests;
+			productName = TarotToolTests;
+			productReference = 7E0AC3B12B6D2E16003F21BE /* TarotToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7E6E6B392B1AE58C00D335CB /* TarotTool */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E6E6B482B1AE58F00D335CB /* Build configuration list for PBXNativeTarget "TarotTool" */;
@@ -151,6 +202,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					7E0AC3B02B6D2E16003F21BE = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 7E6E6B392B1AE58C00D335CB;
+					};
 					7E6E6B392B1AE58C00D335CB = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -170,11 +225,19 @@
 			projectRoot = "";
 			targets = (
 				7E6E6B392B1AE58C00D335CB /* TarotTool */,
+				7E0AC3B02B6D2E16003F21BE /* TarotToolTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7E0AC3AF2B6D2E16003F21BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E6E6B382B1AE58C00D335CB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +250,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E0AC3AD2B6D2E16003F21BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E0AC3B42B6D2E16003F21BE /* TarotToolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E6E6B362B1AE58C00D335CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +267,7 @@
 				7E6E6B402B1AE58C00D335CB /* ContentView.swift in Sources */,
 				7E76FBE22B65C15E003D6E65 /* DeckListView.swift in Sources */,
 				7E76FBDA2B636041003D6E65 /* TarotBasicsView.swift in Sources */,
+				7EFBCE822B6EEBE8003870EA /* Bundle-Decodable.swift in Sources */,
 				7EFA90862B59A99100FB044C /* Previewer.swift in Sources */,
 				7E76FBDC2B6360EB003D6E65 /* DecksView.swift in Sources */,
 				7E76FBE02B644F76003D6E65 /* Spread.swift in Sources */,
@@ -216,7 +288,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7E0AC3B62B6D2E16003F21BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E6E6B392B1AE58C00D335CB /* TarotTool */;
+			targetProxy = 7E0AC3B52B6D2E16003F21BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		7E0AC3B72B6D2E16003F21BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5998PKP98V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tralucent.TarotToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TarotTool.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TarotTool";
+			};
+			name = Debug;
+		};
+		7E0AC3B82B6D2E16003F21BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5998PKP98V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tralucent.TarotToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TarotTool.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TarotTool";
+			};
+			name = Release;
+		};
 		7E6E6B462B1AE58F00D335CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -397,6 +513,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7E0AC3B92B6D2E16003F21BE /* Build configuration list for PBXNativeTarget "TarotToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E0AC3B72B6D2E16003F21BE /* Debug */,
+				7E0AC3B82B6D2E16003F21BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7E6E6B352B1AE58C00D335CB /* Build configuration list for PBXProject "TarotTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

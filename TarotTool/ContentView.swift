@@ -14,7 +14,7 @@ struct ContentView: View {
     
     @State private var sortOrder = [SortDescriptor(\Reading.name)]
     @State private var searchText = ""
-    @State private var currentTab: Int = 1
+    @State private var currentTab: Int = 2
     
     @State private var cardOrder = [SortDescriptor(\Card.name)]
     @State private var deckOrder = [SortDescriptor(\Deck.name)]
@@ -27,14 +27,14 @@ struct ContentView: View {
                         Label("Decks", systemImage: "square.stack.3d.up")
                     }
                     .tag(1)
-                CardsView(searchString: searchText, sortOrder: cardOrder)
-                    .tabItem {
-                        Label("Cards", systemImage: "square.stack")
-                    }
-                    .tag(2)
                 ReadingsView(searchString: searchText, sortOrder: sortOrder)
                     .tabItem {
                         Label("Readings", systemImage: "book.pages")
+                    }
+                    .tag(2)
+                CardsView(searchString: searchText, sortOrder: cardOrder)
+                    .tabItem {
+                        Label("Cards", systemImage: "square.stack")
                     }
                     .tag(3)
             }
