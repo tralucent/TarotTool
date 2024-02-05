@@ -64,22 +64,22 @@ struct ContentView: View {
                     }
                 } else if currentTab == 2 {
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
-                        Picker("Sort", selection: $cardOrder) {
-                            Text("Name (A-Z)")
-                                .tag([SortDescriptor(\Card.name)])
-                            
-                            Text("Name (Z-A)")
-                                .tag([SortDescriptor(\Card.name, order: .reverse)])
-                        }
-                    }
-                } else if currentTab == 3 {
-                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
                         Picker("Sort", selection: $sortOrder) {
                             Text("Name (A-Z)")
                                 .tag([SortDescriptor(\Reading.name)])
                             
                             Text("Name (Z-A)")
                                 .tag([SortDescriptor(\Reading.name, order: .reverse)])
+                        }
+                    }
+                } else if currentTab == 3 {
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort", selection: $cardOrder) {
+                            Text("Name (A-Z)")
+                                .tag([SortDescriptor(\Card.name)])
+                            
+                            Text("Name (Z-A)")
+                                .tag([SortDescriptor(\Card.name, order: .reverse)])
                         }
                     }
                 }
