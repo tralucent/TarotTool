@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class Card: Codable {
-    struct type: Codable {
+    struct CardType: Codable {
         enum arcana: Codable {
             case major, minor, court, nonstandard
         }
@@ -31,6 +31,8 @@ class Card: Codable {
     }
 
     var name: String = ""
+    var type: CardType? = nil
+    var order: Int = -1
     var details: String = ""
     var notes: String = ""
     var history: String = ""
@@ -40,8 +42,10 @@ class Card: Codable {
     var readings: [Reading]? = [Reading]()
     @Attribute(.externalStorage) var image: Data?
     
-    init(name: String, details: String, notes: String, history: String, meaning: String, associations: String, deck: Deck? = nil, readings: [Reading]? = [], image: Data? = nil) {
+    init(name: String, type: CardType? = nil, order: Int, details: String, notes: String, history: String, meaning: String, associations: String, deck: Deck? = nil, readings: [Reading]? = [], image: Data? = nil) {
         self.name = name
+        self.type = type
+        self.order = order
         self.details = details
         self.notes = notes
         self.history = history
@@ -54,12 +58,14 @@ class Card: Codable {
     
     /// I am choosing not to encode deck or readings to avoid potential loops.
     enum CodingKeys: String, CodingKey {
-        case name, details, notes, history, meaning, associations, image
+        case name, type, order, details, notes, history, meaning, associations, image
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         try self.name = container.decode(String.self, forKey: .name)
+        try self.type = container.decodeIfPresent(CardType.self, forKey: .type)
+        try self.order = container.decode(Int.self, forKey: .order)
         try self.details = container.decode(String.self, forKey: .details)
         try self.notes = container.decode(String.self, forKey: .notes)
         try self.history = container.decode(String.self, forKey: .history)
@@ -72,6 +78,8 @@ class Card: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name.self, forKey: .name)
+        try container.encodeIfPresent(type.self, forKey: .type)
+        try container.encode(order.self, forKey: .order)
         try container.encode(details.self, forKey: .details)
         try container.encode(notes.self, forKey: .notes)
         try container.encode(history.self, forKey: .history)
