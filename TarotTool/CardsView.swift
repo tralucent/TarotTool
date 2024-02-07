@@ -11,22 +11,29 @@ import SwiftUI
 struct CardsView: View {
     @Environment(\.modelContext) var modelContext
     
+    var deck: Deck?
+    
     @Query(sort: [
         SortDescriptor(\Card.name)
     ]) var cardList: [Card]
     
     var body: some View {
-        List {
-            ForEach(cardList) { card in
-                NavigationLink(value: card) {
-                    Text(card.name)
+        if deck == nil {
+            List {
+                ForEach(cardList) { card in
+                    NavigationLink(value: card) {
+                        Text(card.name)
+                    }
                 }
+                .onDelete(perform: deleteCards)
             }
-            .onDelete(perform: deleteCards)
+        } else {
+            CardListView(hasCardList: HasCards(hasCardList: deck!))
         }
     }
     
-    init(searchString: String = "", sortOrder: [SortDescriptor<Card>] = []) {
+    init(deck: Deck? = nil, searchString: String = "", sortOrder: [SortDescriptor<Card>] = []) {
+        self.deck = deck
         _cardList = Query(filter: #Predicate { card in
             if searchString.isEmpty {
                 true

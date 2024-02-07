@@ -92,7 +92,7 @@ struct EditReadingView: View {
     }
 
     func addCard() {
-        let card = Card(name: "", details: "", notes: "", history: "", meaning: "", associations: "")
+        let card = Card(name: "", order: -1, details: "", notes: "", history: "", meaning: "", associations: "")
         modelContext.insert(card)
         reading.cards!.append(card)
         navigationPath.append(card)

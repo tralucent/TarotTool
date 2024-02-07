@@ -59,7 +59,7 @@ struct EditDeckView: View {
     }
 
     func addCard() {
-        let card = Card(name: "", details: "", notes: "", history: "", meaning: "", associations: "", deck: deck)
+        let card = Card(name: "", order: -1, details: "", notes: "", history: "", meaning: "", associations: "", deck: deck)
         modelContext.insert(card)
         deck.cards!.append(card)
         navigationPath.append(card)

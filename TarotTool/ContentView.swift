@@ -18,7 +18,12 @@ struct ContentView: View {
     
     @State private var cardOrder = [SortDescriptor(\Card.name)]
     @State private var deckOrder = [SortDescriptor(\Deck.name)]
-    
+
+    @Query(sort: [
+        SortDescriptor(\Deck.name)
+    ]) var deckList: [Deck]
+    @State private var selectedDeck: Deck? = nil
+
     var body: some View {
         NavigationStack(path: $path) {
             TabView(selection: $currentTab) {
@@ -32,7 +37,7 @@ struct ContentView: View {
                         Label("Readings", systemImage: "book.pages")
                     }
                     .tag(2)
-                CardsView(searchString: searchText, sortOrder: cardOrder)
+                CardsView(deck: selectedDeck, searchString: searchText, sortOrder: cardOrder)
                     .tabItem {
                         Label("Cards", systemImage: "square.stack")
                     }
@@ -73,6 +78,17 @@ struct ContentView: View {
                         }
                     }
                 } else if currentTab == 3 {
+                    Menu("Select a deck", systemImage: "line.3.horizontal.decrease") {
+                        Picker("Select a deck", selection: $selectedDeck) {
+                            Text("None")
+                                .tag(nil as Deck?)
+                            ForEach(deckList) { deck in
+                                Text(deck.name)
+                                    .tag(deck as Deck?)
+                            }
+                        }
+                    }
+                    
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
                         Picker("Sort", selection: $cardOrder) {
                             Text("Name (A-Z)")
@@ -108,7 +124,7 @@ struct ContentView: View {
     }
     
     func addCard() {
-        let card = Card(name: "", details: "", notes: "", history: "", meaning: "", associations: "", deck: nil, readings: [], image: nil)
+        let card = Card(name: "", type: nil, order: -1, details: "", notes: "", history: "", meaning: "", associations: "", deck: nil, readings: [], image: nil)
         modelContext.insert(card)
         path.append(card)
     }
