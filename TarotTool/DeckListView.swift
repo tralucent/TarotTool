@@ -13,13 +13,20 @@ struct DeckListView: View {
     @Query var decks: [Deck]
     
     var body: some View {
-        List {
-            ForEach(decks) { deck in
-                NavigationLink(value: deck) {
-                    Text(deck.name)
+        VStack {
+            List {
+                ForEach(decks) { deck in
+                    NavigationLink(value: deck) {
+                        Text(deck.name)
+                    }
+                }
+                .onDelete(perform: deleteDecks)
+            }
+            Button("Load a Deck") {
+                Task {
+                    await loadDeck()
                 }
             }
-            .onDelete(perform: deleteDecks)
         }
     }
     
@@ -31,6 +38,37 @@ struct DeckListView: View {
                 deck.name.localizedStandardContains(searchString)
             }
         }, sort: sortOrder)
+    }
+    
+    func loadDeck() async {
+        //loading happens here
+        print("you hit the button!")
+        
+//        guard let url = URL(string: "https://drive.google.com/file/d/1ouquJJT8xNp7E6DzdOfngWxAPG-k41jB/view?usp=drive_link") else {
+//            fatalError("Invalide url")
+//        }
+        
+        let url = URL.documentsDirectory.appending(path: "White Numen.json")
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+                
+        do {
+            // try things
+            //let (data, _) = try await URLSession.shared.data(from: url)
+            let data = try Data(contentsOf: url)
+            
+            //try print(decoder.decode(Deck.self, from: data))
+            
+            guard let decodedDeck = try? decoder.decode(Deck.self, from: data) else {
+                fatalError("Failed to decode deck")
+            }
+            
+            modelContext.insert(decodedDeck)
+            //path.append(decodedDeck)
+        } catch {
+            print("Decoding failed: \(error.localizedDescription)")
+        }
     }
     
     func deleteDecks(at offsets: IndexSet) {

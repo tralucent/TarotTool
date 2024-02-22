@@ -5,9 +5,11 @@
 //  Created by Halcyone Rapp on 2/2/24.
 //
 
+@testable import TarotTool
+import SwiftData
 import XCTest
 
-final class TarotToolTests: XCTestCase {
+@MainActor final class TarotToolTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -12,9 +12,22 @@ import SwiftData
 class Deck: HasCardList, Codable {
     typealias T = Deck
     
+    enum DeckType: Codable {
+        case tarot, oracle, lenormand, other
+    }
+    
+    enum Element: String, Codable {
+        case air = "Air"
+        case earth = "Earth"
+        case fire = "Fire"
+        case water = "Water"
+    }
+    
     var name: String = ""
     var author: String = ""
     var artist: String = ""
+    //var deckType: DeckType = DeckType.tarot
+    //var suitNames: [Element: String] = [.air: "Swords", .earth: "Pentacles", .fire: "Wands", .water: "Cups"]
     var details: String = ""
     var history: String = ""
     var notes: String = ""
@@ -27,6 +40,8 @@ class Deck: HasCardList, Codable {
         self.name = name
         self.author = author
         self.artist = artist
+        //self.deckType = deckType
+        //, deckType: DeckType = .tarot
         self.details = details
         self.history = history
         self.notes = notes
@@ -36,7 +51,7 @@ class Deck: HasCardList, Codable {
     }
     
     enum CodingKeys: CodingKey {
-        case name, author, artist, details, history, notes, cards, image, cardBack
+        case name, author, artist, deckType, details, history, notes, cards, image, cardBack
     }
     
     required init(from decoder: Decoder) throws {
@@ -44,6 +59,7 @@ class Deck: HasCardList, Codable {
         try self.name = container.decode(String.self, forKey: .name)
         try self.author = container.decode(String.self, forKey: .author)
         try self.artist = container.decode(String.self, forKey: .artist)
+        //try self.deckType = container.decode(DeckType.self, forKey: .deckType)
         try self.details = container.decode(String.self, forKey: .details)
         try self.history = container.decode(String.self, forKey: .history)
         try self.notes = container.decode(String.self, forKey: .notes)
@@ -59,6 +75,7 @@ class Deck: HasCardList, Codable {
         try container.encode(name, forKey: .name)
         try container.encode(author, forKey: .author)
         try container.encode(artist, forKey: .artist)
+        //try container.encode(deckType, forKey: .deckType)
         try container.encode(details, forKey: .details)
         try container.encode(history, forKey: .history)
         try container.encode(notes, forKey: .notes)

@@ -1,0 +1,27 @@
+{
+"name":"The Witch’s Wisdom Tarot",
+"author":"Phyllis Cuorot",
+"artist":"Danielle Barlow",
+"details":"",
+"history":"",
+"notes":"Gift from my mother",
+"cards":[
+{
+"name":"Six of Air",
+"details":"Minor Arcana air peak experience",
+"order":-1,
+"meaning":"",
+"associations":"",
+"history":"",
+"notes":"Swans and cygnets"
+},
+{
+"name":"Queen of Wands",
+"details":"Inspire",
+"order":-1,
+"meaning":"",
+"associations":"",
+"history":"",
+"notes":"She supports bold fire leadership"
+}]
+}
