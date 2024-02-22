@@ -12,6 +12,9 @@ struct DeckListView: View {
     @Environment(\.modelContext) var modelContext
     @Query var decks: [Deck]
     
+    @State private var selectedFileURL: URL?
+    @State private var showingFileBrowser = false
+    
     var body: some View {
         VStack {
             List {
@@ -22,11 +25,22 @@ struct DeckListView: View {
                 }
                 .onDelete(perform: deleteDecks)
             }
-            Button("Load a Deck") {
-                Task {
-                    await loadDeck()
+            VStack {
+                Button("Select Deck") {
+                    showingFileBrowser.toggle()
+                }
+                .sheet(isPresented: $showingFileBrowser, content: {
+                    DocumentBrowserViewWrapperView(selectedFileURL: $selectedFileURL)
+                        .navigationBarTitle("Document Browser")
+                })
+                
+                Button("Load a Deck") {
+                    Task {
+                        await loadDeck()
+                    }
                 }
             }
+            .padding()
         }
     }
     
