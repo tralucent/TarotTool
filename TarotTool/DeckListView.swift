@@ -30,8 +30,8 @@ struct DeckListView: View {
                     showingFileBrowser.toggle()
                 }
                 .sheet(isPresented: $showingFileBrowser, content: {
-                    DocumentBrowserViewWrapperView(selectedFileURL: $selectedFileURL)
-                        .navigationBarTitle("Document Browser")
+//                    DocumentBrowserViewWrapperView(selectedFileURL: $selectedFileURL)
+//                        .navigationBarTitle("Document Browser")
                 })
                 
                 Button("Load a Deck") {
