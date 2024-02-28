@@ -102,13 +102,67 @@
 			path = TarotToolTests;
 			sourceTree = "<group>";
 		};
-		7E6254B32B8FDA4900A7043C /* DocumentHandling */ = {
+		7E6254B32B8FDA4900A7043C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7EFBCE812B6EEBE8003870EA /* Bundle-Decodable.swift */,
 				7E6254B42B8FDAA700A7043C /* DocumentPicker.swift */,
 				7E6254B62B8FE39F00A7043C /* DocumentPicker-ViewExtension.swift */,
+				7EFA90852B59A99000FB044C /* Previewer.swift */,
 			);
-			path = DocumentHandling;
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7E6254B82B8FE6FC00A7043C /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				7E6E6B4B2B1AE71E00D335CB /* Card.swift */,
+				7E76FBD72B62AC16003D6E65 /* CardListView.swift */,
+				7E76FBDD2B63611D003D6E65 /* CardsView.swift */,
+				7E6BAE332B5EC9430006ABE2 /* ChooseCardsView.swift */,
+				7E64A0952B56E1B500A3BD28 /* EditCardView.swift */,
+				7E6BAE352B5ED4030006ABE2 /* EditCardListView.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		7E6254B92B8FE72600A7043C /* Decks */ = {
+			isa = PBXGroup;
+			children = (
+				7E64A0932B56CB9E00A3BD28 /* Deck.swift */,
+				7E76FBE12B65C15D003D6E65 /* DeckListView.swift */,
+				7E76FBDB2B6360EB003D6E65 /* DecksView.swift */,
+				7E76FBE92B65E2B5003D6E65 /* EditDeckView.swift */,
+			);
+			path = Decks;
+			sourceTree = "<group>";
+		};
+		7E6254BA2B8FE7E000A7043C /* Spreads */ = {
+			isa = PBXGroup;
+			children = (
+				7E76FBE52B65E283003D6E65 /* EditSpreadView.swift */,
+				7E76FBDF2B644F76003D6E65 /* Spread.swift */,
+				7E76FBE32B65E1B0003D6E65 /* SpreadListView.swift */,
+			);
+			path = Spreads;
+			sourceTree = "<group>";
+		};
+		7E6254BB2B8FE7F500A7043C /* Readings */ = {
+			isa = PBXGroup;
+			children = (
+				7E64A0892B55C85800A3BD28 /* EditReadingView.swift */,
+				7E64A0852B55C57800A3BD28 /* Reading.swift */,
+				7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */,
+			);
+			path = Readings;
+			sourceTree = "<group>";
+		};
+		7E6254BC2B8FE89B00A7043C /* TarotBasics */ = {
+			isa = PBXGroup;
+			children = (
+				7E76FBD92B636041003D6E65 /* TarotBasicsView.swift */,
+			);
+			path = TarotBasics;
 			sourceTree = "<group>";
 		};
 		7E6E6B312B1AE58C00D335CB = {
@@ -132,28 +186,14 @@
 		7E6E6B3C2B1AE58C00D335CB /* TarotTool */ = {
 			isa = PBXGroup;
 			children = (
-				7E6254B32B8FDA4900A7043C /* DocumentHandling */,
+				7E6254B82B8FE6FC00A7043C /* Cards */,
+				7E6254B92B8FE72600A7043C /* Decks */,
+				7E6254BB2B8FE7F500A7043C /* Readings */,
+				7E6254BA2B8FE7E000A7043C /* Spreads */,
+				7E6254BC2B8FE89B00A7043C /* TarotBasics */,
+				7E6254B32B8FDA4900A7043C /* Utilities */,
 				7E6E6B3D2B1AE58C00D335CB /* TarotToolApp.swift */,
-				7EFBCE812B6EEBE8003870EA /* Bundle-Decodable.swift */,
 				7E6E6B3F2B1AE58C00D335CB /* ContentView.swift */,
-				7E6E6B4B2B1AE71E00D335CB /* Card.swift */,
-				7E76FBD72B62AC16003D6E65 /* CardListView.swift */,
-				7E76FBDD2B63611D003D6E65 /* CardsView.swift */,
-				7E6BAE332B5EC9430006ABE2 /* ChooseCardsView.swift */,
-				7E64A0932B56CB9E00A3BD28 /* Deck.swift */,
-				7E76FBE12B65C15D003D6E65 /* DeckListView.swift */,
-				7E76FBDB2B6360EB003D6E65 /* DecksView.swift */,
-				7E64A0952B56E1B500A3BD28 /* EditCardView.swift */,
-				7E76FBE92B65E2B5003D6E65 /* EditDeckView.swift */,
-				7E6BAE352B5ED4030006ABE2 /* EditCardListView.swift */,
-				7E64A0892B55C85800A3BD28 /* EditReadingView.swift */,
-				7E76FBE52B65E283003D6E65 /* EditSpreadView.swift */,
-				7EFA90852B59A99000FB044C /* Previewer.swift */,
-				7E64A0852B55C57800A3BD28 /* Reading.swift */,
-				7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */,
-				7E76FBDF2B644F76003D6E65 /* Spread.swift */,
-				7E76FBE32B65E1B0003D6E65 /* SpreadListView.swift */,
-				7E76FBD92B636041003D6E65 /* TarotBasicsView.swift */,
 				7E6E6B412B1AE58F00D335CB /* Assets.xcassets */,
 				7E6E6B432B1AE58F00D335CB /* Preview Content */,
 			);
