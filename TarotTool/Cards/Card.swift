@@ -107,7 +107,7 @@ class HasCards: Observable {
     }
     
     func getCardList() -> [Card] {
-        hasCardList.cards!
+        hasCardList.cards!.sorted(by: { $0.order < $1.order })
     }
     
     func addCard(card: Card) {

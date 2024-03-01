@@ -32,7 +32,7 @@ struct CardsView: View {
         }
     }
     
-    init(deck: Deck? = nil, searchString: String = "", sortOrder: [SortDescriptor<Card>] = []) {
+    init(deck: Deck? = nil, searchString: String = "", sortOrder: [SortDescriptor<Card>] = [SortDescriptor(\Card.order), SortDescriptor(\Card.name)]) {
         self.deck = deck
         _cardList = Query(filter: #Predicate { card in
             if searchString.isEmpty {
