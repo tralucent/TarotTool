@@ -10,6 +10,8 @@
 		7E0AC3B42B6D2E16003F21BE /* TarotToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0AC3B32B6D2E16003F21BE /* TarotToolTests.swift */; };
 		7E6254B52B8FDAA700A7043C /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6254B42B8FDAA700A7043C /* DocumentPicker.swift */; };
 		7E6254B72B8FE39F00A7043C /* DocumentPicker-ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6254B62B8FE39F00A7043C /* DocumentPicker-ViewExtension.swift */; };
+		7E6254BE2B8FFD8100A7043C /* LoadDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6254BD2B8FFD8100A7043C /* LoadDeckView.swift */; };
+		7E6254C02B9002A900A7043C /* SaveDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6254BF2B9002A900A7043C /* SaveDeckView.swift */; };
 		7E64A0862B55C57800A3BD28 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0852B55C57800A3BD28 /* Reading.swift */; };
 		7E64A08A2B55C85800A3BD28 /* EditReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A0892B55C85800A3BD28 /* EditReadingView.swift */; };
 		7E64A08E2B55F8F100A3BD28 /* ReadingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */; };
@@ -50,6 +52,8 @@
 		7E0AC3B32B6D2E16003F21BE /* TarotToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotToolTests.swift; sourceTree = "<group>"; };
 		7E6254B42B8FDAA700A7043C /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		7E6254B62B8FE39F00A7043C /* DocumentPicker-ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentPicker-ViewExtension.swift"; sourceTree = "<group>"; };
+		7E6254BD2B8FFD8100A7043C /* LoadDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDeckView.swift; sourceTree = "<group>"; };
+		7E6254BF2B9002A900A7043C /* SaveDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDeckView.swift; sourceTree = "<group>"; };
 		7E64A0852B55C57800A3BD28 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		7E64A0892B55C85800A3BD28 /* EditReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReadingView.swift; sourceTree = "<group>"; };
 		7E64A08D2B55F8F000A3BD28 /* ReadingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingsView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				7E76FBE12B65C15D003D6E65 /* DeckListView.swift */,
 				7E76FBDB2B6360EB003D6E65 /* DecksView.swift */,
 				7E76FBE92B65E2B5003D6E65 /* EditDeckView.swift */,
+				7E6254BD2B8FFD8100A7043C /* LoadDeckView.swift */,
+				7E6254BF2B9002A900A7043C /* SaveDeckView.swift */,
 			);
 			path = Decks;
 			sourceTree = "<group>";
@@ -328,9 +334,11 @@
 				7E76FBDE2B63611D003D6E65 /* CardsView.swift in Sources */,
 				7E6254B72B8FE39F00A7043C /* DocumentPicker-ViewExtension.swift in Sources */,
 				7E6BAE362B5ED4030006ABE2 /* EditCardListView.swift in Sources */,
+				7E6254C02B9002A900A7043C /* SaveDeckView.swift in Sources */,
 				7E76FBE62B65E283003D6E65 /* EditSpreadView.swift in Sources */,
 				7E6254B52B8FDAA700A7043C /* DocumentPicker.swift in Sources */,
 				7E6E6B4C2B1AE71E00D335CB /* Card.swift in Sources */,
+				7E6254BE2B8FFD8100A7043C /* LoadDeckView.swift in Sources */,
 				7E6BAE342B5EC9430006ABE2 /* ChooseCardsView.swift in Sources */,
 				7E76FBEA2B65E2B5003D6E65 /* EditDeckView.swift in Sources */,
 				7E64A0862B55C57800A3BD28 /* Reading.swift in Sources */,

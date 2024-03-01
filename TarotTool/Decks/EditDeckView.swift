@@ -70,10 +70,7 @@ struct EditDeckView: View {
             
             // This is to allow me to encode the deck and check out it's JSON
             Section {
-                // gonna use this to upload a JSON file
-                TextField("File url", text: $url)
-                // save a JSON file
-                Button("Save Deck", action: saveDeck)
+                SaveDeckView(deck: deck)
             }
         }
         .onChange(of: selectedItem, loadImage)
@@ -91,26 +88,6 @@ struct EditDeckView: View {
     func loadImage() {
         Task { @MainActor in
             deck.image = try await selectedItem?.loadTransferable(type: Data.self)
-        }
-    }
-    
-    func loadDeck() {
-        if !url.isEmpty {
-            // try to load the file
-        }
-    }
-    
-    func saveDeck() {
-        do {
-            let encodedDeck = try JSONEncoder().encode(deck)
-            let encodedString = String(data: encodedDeck, encoding: .utf8)
-            print(encodedString ?? "There was an error encoding the deck.")
-            // currently the following isn't working as expected. this may be related to document based apps v swift data.
-            // this isn't important compared to loading data in
-            let url = URL.documentsDirectory.appending(path: "\(deck.name).json")
-            try encodedString?.write(to: url, atomically: true, encoding: .utf8)
-        } catch {
-            print("Deck could not be saved. \(error.localizedDescription)")
         }
     }
 }

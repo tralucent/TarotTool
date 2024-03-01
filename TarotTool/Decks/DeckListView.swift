@@ -25,20 +25,11 @@ struct DeckListView: View {
                 }
                 .onDelete(perform: deleteDecks)
             }
+            
+            Spacer()
+            
             VStack {
-                Button("Select Deck") {
-                    showingFileBrowser.toggle()
-                }
-                .sheet(isPresented: $showingFileBrowser, content: {
-//                    DocumentBrowserViewWrapperView(selectedFileURL: $selectedFileURL)
-//                        .navigationBarTitle("Document Browser")
-                })
-                
-                Button("Load a Deck") {
-                    Task {
-                        await loadDeck()
-                    }
-                }
+                LoadDeckView()
             }
             .padding()
         }
