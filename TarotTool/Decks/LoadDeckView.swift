@@ -10,16 +10,22 @@ import SwiftUI
 struct LoadDeckView: View {
     @Environment(\.modelContext) var modelContext
     @State private var isPresented = false
+    @State private var urls: [URL]?
     
     var body: some View {
         Button("Choose Deck to Load") {
             isPresented.toggle()
         }
-        .documentPicker(isPresented: $isPresented, types: [.json], onDocumentPicked: { urls in
-            loadDeck(urls.first!)
-        })
+        .fileImporter(isPresented: $isPresented, allowedContentTypes: [.json]) { result in
+            switch result {
+            case .success(let url):
+                loadDeck(url)
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
-    
+
     func loadDeck(_ url: URL) {
         print("Loading Deck at: \(url.absoluteString)")
         guard let data = try? Data(contentsOf: url) else {

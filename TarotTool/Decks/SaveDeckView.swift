@@ -17,9 +17,14 @@ struct SaveDeckView: View {
         Button("Choose folder") {
             isPresented.toggle()
         }
-        .documentPicker(isPresented: $isPresented, types: [.folder], onDocumentPicked: { urls in
-            saveDeck(urls.first)
-        })
+        .fileImporter(isPresented: $isPresented, allowedContentTypes: [.folder]) { result in
+            switch result {
+            case .success(let url):
+                saveDeck(url)
+            case .failure(let error):
+                print("An error: \(error.localizedDescription)")
+            }
+        }
     }
     
     func saveDeck(_ folder: URL?) {
