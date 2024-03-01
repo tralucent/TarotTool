@@ -16,7 +16,9 @@ struct CardListView: View {
 
         List {
             ForEach(cards) { card in
-                Text(card.name)
+                NavigationLink(value: card) {
+                    Text(card.name)
+                }
             }
         }
     }

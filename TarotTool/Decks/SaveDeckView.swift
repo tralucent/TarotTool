@@ -24,7 +24,7 @@ struct SaveDeckView: View {
     
     func saveDeck(_ folder: URL?) {
         print("Saving deck: \(deck.name) in \(fileName)")
-        guard var url = folder else {
+        guard let url = folder else {
             return
         }
         if let encodedDeck = try? JSONEncoder().encode(deck) {
