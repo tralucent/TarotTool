@@ -68,7 +68,6 @@ struct EditDeckView: View {
                 TextField("Notes", text: $deck.notes)
             }
             
-            // This is to allow me to encode the deck and check out it's JSON
             Section {
                 SaveDeckView(deck: deck)
             }

@@ -13,8 +13,8 @@ struct SaveDeckView: View {
     var deck: Deck
     
     var body: some View {
-        TextField("\(deck.name)", text: $fileName)
-        Button("Pick a folder to save in.") {
+        TextField("File name", text: $fileName)
+        Button("Choose folder") {
             isPresented.toggle()
         }
         .documentPicker(isPresented: $isPresented, types: [.folder], onDocumentPicked: { urls in
@@ -27,6 +27,12 @@ struct SaveDeckView: View {
         guard let url = folder else {
             return
         }
+        
+        if fileName.isEmpty {
+            print("No filename provided, deck not saved")
+            return
+        }
+        
         if let encodedDeck = try? JSONEncoder().encode(deck) {
             let filePath: URL = url.appendingPathComponent(fileName, conformingTo: .json)
             do {

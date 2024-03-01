@@ -15,8 +15,11 @@ public extension View {
         onCancel: @escaping () -> () = { }, onDocumentPicked: @escaping (_: [URL]) -> () = {_ in }
     ) -> some View {
         Group {
-            self
-            DocumentPicker(isPresented: isPresented, types: types, onCancel: onCancel, onDocumentsPicked: onDocumentPicked)
+            HStack {
+                Spacer()
+                self
+                DocumentPicker(isPresented: isPresented, types: types, onCancel: onCancel, onDocumentsPicked: onDocumentPicked)
+            }
         }
     }
 }
