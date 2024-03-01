@@ -16,9 +16,9 @@ public extension View {
     ) -> some View {
         Group {
             HStack {
-                Spacer()
                 self
                 DocumentPicker(isPresented: isPresented, types: types, onCancel: onCancel, onDocumentsPicked: onDocumentPicked)
+                    .containerRelativeFrame(.horizontal, count: 5, span: 0, spacing: 10)
             }
         }
     }
