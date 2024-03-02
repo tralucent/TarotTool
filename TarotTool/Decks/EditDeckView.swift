@@ -9,20 +9,6 @@ import PhotosUI
 import SwiftData
 import SwiftUI
 
-//extension UIImage {
-//    func encodedImage(_ imageData: UIImage) -> String {
-//        return imageData.pngData()?.base64EncodedString() ?? ""
-//    }
-//    
-//    func decodedImage(_ base64Data: String) -> Image? {
-//        guard let imageData = Data(base64Encoded: base64Data) else {
-//            return nil
-//        }
-//        
-//        return Image(uiImage: UIImage(data: imageData)!)
-//    }
-//}
-
 struct EditDeckView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var deck: Deck

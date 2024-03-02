@@ -32,11 +32,22 @@ struct LoadDeckView: View {
             fatalError("Could not load data from \(url.absoluteString)")
         }
         
+        let folder = url.deletingLastPathComponent().appendingPathComponent("images", conformingTo: .folder)
+
         let decoder = JSONDecoder()
         
         do {
             let deck = try decoder.decode(Deck.self, from: data)
             modelContext.insert(deck)
+
+            let cards = deck.cards!
+            if !cards.isEmpty {
+                for card in cards {
+                    let imageURL = folder.appendingPathComponent("\(card.order)", conformingTo: .png)
+                    card.image = try Data(contentsOf: imageURL)
+                }
+            }
+
         } catch {
             print("Error decoding deck: \(error.localizedDescription)")
         }

@@ -65,9 +65,26 @@ class Deck: HasCardList, Codable {
         try self.notes = container.decode(String.self, forKey: .notes)
         // hopefully swift just uses the card decode and all is well
         try self.cards = container.decodeIfPresent([Card].self, forKey: .cards)
+        //does this pose a problem
+//        if let folder = try container.decodeIfPresent(URL.self, forKey: .folder) {
+//            for card in self.cards! {
+//                // grab the image from the folder
+//                let fileName = "\(card.order).jpeg"
+//                // silencing some warnings 
+//                print("\(folder)\(fileName)")
+//            }
+//        }
         // images when i'm ready.
 //        try self.image = container.decodeIfPresent(Data.self, forKey: .image)
 //        try self.image = container.decodeIfPresent(Data.self, forKey: .cardBack)
+    }
+    
+    func getImage(_ url: URL, for card: Card) {
+        do {
+            card.image = try Data(contentsOf: url)
+        } catch {
+            print("Could not grab image at \(url). Error: \(error.localizedDescription)")
+        }
     }
     
     func encode(to encoder: Encoder) throws {

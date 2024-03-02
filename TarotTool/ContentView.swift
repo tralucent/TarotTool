@@ -99,6 +99,11 @@ struct ContentView: View {
                         }
                     }
                 }
+                
+                // this is a for now addition to make it easy to delete all decks and cards
+                Button("Clean up", systemImage: "trash") {
+                    cleanUp()
+                }
 
                 Menu("Add things", systemImage: "plus") {
                     Button("Add Reading", action: addReading)
@@ -108,6 +113,15 @@ struct ContentView: View {
                 }
             }
             .searchable(text: $searchText)
+        }
+    }
+    
+    func cleanUp() {
+        do {
+            try modelContext.delete(model: Deck.self)
+            try modelContext.delete(model: Card.self)
+        } catch {
+            print("Could not delete data")
         }
     }
     
