@@ -39,6 +39,14 @@ struct LoadDeckView: View {
         do {
             let deck = try decoder.decode(Deck.self, from: data)
             modelContext.insert(deck)
+            
+            // try for deck image
+            let deckImageURL = folder.appendingPathComponent("deckImage", conformingTo: .png)
+            deck.image = try Data(contentsOf: deckImageURL)
+            
+            // try for cardback image
+            let cardBackURL = folder.appendingPathComponent("cardBack", conformingTo: .png)
+            deck.cardBack = try Data(contentsOf: cardBackURL)
 
             let cards = deck.cards!
             if !cards.isEmpty {

@@ -15,6 +15,7 @@ struct EditDeckView: View {
     @Binding var navigationPath: NavigationPath
     
     @State private var selectedItem: PhotosPickerItem?
+    @State private var selectedCardBack: PhotosPickerItem?
     @State private var url: String = ""
     
     var body: some View {
@@ -25,7 +26,13 @@ struct EditDeckView: View {
                         .resizable()
                         .scaledToFit()
                 }
-                
+
+                if let imageData = deck.cardBack, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                }
+
                 PhotosPicker(selection: $selectedItem, matching: .images) {
                     Label(deck.image == nil ? "Select an image" : "Change image", systemImage: "photo")
                 }
