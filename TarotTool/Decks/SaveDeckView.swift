@@ -17,6 +17,15 @@ struct SaveDeckView: View {
         Button("Choose folder") {
             isPresented.toggle()
         }
+//        .fileExporter(isPresented: $isPresented, documents: Deck, contentType: .json, onCompletion: { result in
+//            switch result {
+//            case .success(let urls):
+//                print(urls.first?.absoluteString)
+//            case .failure(let error):
+//                print("An error: \(error.localizedDescription)")
+//            }
+//        })
+//        
         .fileImporter(isPresented: $isPresented, allowedContentTypes: [.folder]) { result in
             switch result {
             case .success(let url):
