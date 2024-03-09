@@ -102,7 +102,7 @@ struct ContentView: View {
                 
                 // this is a for now addition to make it easy to delete all decks and cards
                 Button("Clean up", systemImage: "trash") {
-                    cleanUp()
+                    deleteAllDecksAndCards()
                 }
 
                 Menu("Add things", systemImage: "plus") {
@@ -116,7 +116,8 @@ struct ContentView: View {
         }
     }
     
-    func cleanUp() {
+    // this clears all decks and cards
+    func deleteAllDecksAndCards() {
         do {
             try modelContext.delete(model: Deck.self)
             try modelContext.delete(model: Card.self)
